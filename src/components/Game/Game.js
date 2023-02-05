@@ -45,6 +45,7 @@ function Game() {
             <Guess
               key={index}
               guess={submit}
+              answer={answer}
             />
           )
         })}

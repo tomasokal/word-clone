@@ -26,13 +26,14 @@ function Game() {
   const [attempts, setNumOfAttempts] = React.useState(0);
 
   function handleNewSubmit(guess) {
-    const nextSubmits = [...submits];
-    nextSubmits[attempts] = guess;
-    setSubmits(nextSubmits);
-    setNumOfAttempts(attempts + 1);
+    if(attempts < NUM_OF_GUESSES_ALLOWED)
+    {
+      const nextSubmits = [...submits];
+      nextSubmits[attempts] = guess;
+      setSubmits(nextSubmits);
+      setNumOfAttempts(attempts + 1);
+    }
   }
-
-  console.log(attempts)
 
   return(
 
@@ -40,10 +41,9 @@ function Game() {
     
       <div className='guess-results'>
         {submits.map((submit, index) => {
-          const submitID = `submit-${index}`;
           return (
             <Guess
-              id={submitID}
+              key={index}
               guess={submit}
             />
           )

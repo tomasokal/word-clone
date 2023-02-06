@@ -6,6 +6,7 @@ import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 
 import GuessInput from '../GuessInput';
 import Guess from '../Guess/Guess';
+import Logic from '../Logic/Logic';
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -24,6 +25,7 @@ function Game() {
   ]);
 
   const [attempts, setNumOfAttempts] = React.useState(0);
+  const [win, setWin] = React.useState('playing');
 
   function handleNewSubmit(guess) {
     if(attempts < NUM_OF_GUESSES_ALLOWED)
@@ -32,8 +34,13 @@ function Game() {
       nextSubmits[attempts] = guess;
       setSubmits(nextSubmits);
       setNumOfAttempts(attempts + 1);
+      if(nextSubmits.includes(answer))
+      {
+        setWin('win');
+      }
     }
   }
+
 
   return(
 
@@ -50,6 +57,13 @@ function Game() {
           )
         })}
       </div>
+      
+      <Logic 
+        answer={answer}
+        win={win}
+        attempts={attempts}
+        setWin={setWin}
+      />
 
       <GuessInput 
         handleNewSubmit={handleNewSubmit}

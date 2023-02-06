@@ -9,7 +9,6 @@ function GuessInput({ handleNewSubmit }) {
     event.preventDefault();
 
     if(guess.length===5){
-      console.log(guess);
       handleNewSubmit(guess)
       setGuess('');
     }

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "author": "Josh Comeau <me@joshwcomeau.com>",
+  "homepage": "https://tomasokal.github.io/word-clone",
   "dependencies": {
     "new-component": "4.0.0",
     "prettier": "^2.6.2",
@@ -10,12 +11,16 @@
     "react-dom": "18.2.0",
     "react-scripts": "5.0.1"
   },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "new-component": "new-component",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
